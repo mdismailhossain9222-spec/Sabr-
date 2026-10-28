@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Tailwind v4 reads design tokens from @theme — keep in sync with tailwind.config.js */
+@theme {
+  --color-mainPink: #F09DBB;
+  --color-lightPink: #F4C3D1;
+  --color-blush: #FCE4EC;
+  --color-daisyYellow: #FBF8CE;
+  --color-daisyGreen: #9EB79B;
+  --color-darkText: #4A3B42;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Raleway', sans-serif;
+}
+
+html { scroll-behavior: smooth; background: #F4C3D1; }
+body { font-family: 'Raleway', sans-serif; background: #F4C3D1; color: #4A3B42; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+@layer components {
+.liquid-glass-light {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+}
+.liquid-btn {
+  background: #FBF8CE;
+  color: #4A3B42;
+  border: 1px solid rgba(74, 59, 66, 0.15);
+  border-radius: 9999px;
+  transition: all 0.35s ease;
+}
+.liquid-btn:hover {
+  border-color: #F09DBB;
+  box-shadow: 0 0 0 3px rgba(240, 157, 187, 0.45), 0 8px 24px rgba(240, 157, 187, 0.35);
+}
+.liquid-btn:focus-visible { outline: 2px solid #4A3B42; outline-offset: 3px; }
+/* Flex-safe holder for every LiquidGlassButton: centres the button and can never push its parent flex/grid track wider. */
+.liquid-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+}
+.editorial-heading {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+}
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@keyframes floaty { 0%,100% { transform: translateY(0) rotate(0) } 50% { transform: translateY(-14px) rotate(8deg) } }
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
