@@ -217,13 +217,12 @@ export default function Home() {
           {/* Landscape hero video — add your src */}
           <video
             src="/1.mp4"
-            poster="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920"
-            className="absolute inset-0 z-0 h-full w-full object-cover"
+            className="absolute inset-0 z-0 w-full h-full object-cover"
             autoPlay
             loop
             muted
             playsInline
-            preload="none"
+            preload="auto"
             aria-label="Sabar by Simran campaign video"
           />
           <div className="absolute inset-0 z-10 bg-black/30" aria-hidden="true" />
